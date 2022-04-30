@@ -35,11 +35,6 @@ app.put('/qa/questions/:question_id/report', reportQuestion);
 app.put('/qa/answers/:answer_id/report', reportAnswer);
 
 
-// //test
-// app.get('/', function (req, res) {
-//   res.send('hello');
-// });
-
 
 app.listen(PORT, () =>
   console.log(`The SDC is running on: http://localhost:${PORT}.`)

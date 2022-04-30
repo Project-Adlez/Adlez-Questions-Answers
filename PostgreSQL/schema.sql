@@ -1,5 +1,4 @@
 -- -- --clear database on start up
-DROP TABLE IF EXISTS products CASCADE;
 DROP TABLE IF EXISTS questions CASCADE;
 DROP TABLE IF EXISTS answers CASCADE;
 DROP TABLE IF EXISTS photos CASCADE;
@@ -13,15 +12,6 @@ CREATE DATABASE sdc;
 
 --create table if it doesnt exists
 
--- CREATE TABLE IF NOT EXISTS products (
---   id SERIAL PRIMARY KEY NOT NULL,
---   product_name VARCHAR(200),
---   product_slogan VARCHAR(200),
---   product_description TEXT,
---   product_category VARCHAR(200),
---   product_price INT
--- );
-
 CREATE TABLE IF NOT EXISTS questions (
   id SERIAL PRIMARY KEY NOT NULL,
   product_id INT NOT NULL,
@@ -31,7 +21,6 @@ CREATE TABLE IF NOT EXISTS questions (
   question_email VARCHAR(100),
   question_reported BOOLEAN DEFAULT false,
   question_helpfulness INT DEFAULT  0
-  -- FOREIGN KEY (product_id) REFERENCES products (id)
 );
 
 CREATE TABLE IF NOT EXISTS answers (
@@ -53,14 +42,6 @@ CREATE TABLE IF NOT EXISTS photos (
   FOREIGN KEY (answer_id) REFERENCES answers (id)
 );
 
--- ALTER TABLE answers ADD FOREIGN KEY ()
--- psql postgres < load.sql
-
--- ALTER TABLE questions ALTER COLUMN question_date TYPE timestamp using to_timestamp(question_date/1000)::date;
--- ALTER TABLE questions ALTER COLUMN question_date SET DEFAULT current_timestamp;
-
--- ALTER TABLE answers ALTER COLUMN answer_date TYPE timestamp using to_timestamp(answer_date/1000)::date;
--- ALTER TABLE answers ALTER COLUMN answer_date SET DEFAULT current_timestamp;
 
 CREATE INDEX IF NOT EXISTS question_idx ON questions (product_id);
 CREATE INDEX IF NOT EXISTS answer_idx ON answers (question_id);
