@@ -59,8 +59,7 @@ Retrieves a list of questions for a particular product.
             "date": "2018-08-18T00:00:00.000Z",
             "answerer_name": "Seller",
             "helpfulness": 4,
-            "photos": []
-            // ...
+            "photos": [],
           }
         }
       },
@@ -89,8 +88,7 @@ Retrieves a list of questions for a particular product.
             "photos": [],
           }
         }
-      },
-      // ...
+      }
   ]
 }
 ```
@@ -138,11 +136,9 @@ Returns answers for a given question.
         {
           "id": 2,
           "url": "urlplaceholder/answer_5_photo_number_2.jpg"
-        },
-        // ...
+        }
       ]
-    },
-    // ...
+    }
   ]
 }
 ```
